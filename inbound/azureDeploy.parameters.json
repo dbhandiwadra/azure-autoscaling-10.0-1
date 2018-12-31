@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appGatewayDnsName": {
+      "value": "rrascinboundfw3frontend"
+    },
+    "networkSecurityGroupInboundSrcIP": {
+      "value": "199.167.54.229"
+    },
+    "fwLoadBalancerIP": {
+      "value": "192.168.1.4"
+    },
+    "virtualNetworkName": {
+      "value": "rr-asc-3-inbound-fw-vnet"
+    },
+    "virtualNetworkAddressPrefix": {
+      "value": "192.168.0.0/21"
+    },
+    "mgmtSubnetPrefix": {
+      "value": "192.168.0.0/24"
+    },
+    "untrustSubnetPrefix": {
+      "value": "192.168.1.0/24"
+    },
+    "trustSubnetPrefix": {
+      "value": "192.168.2.0/24"
+    },
+    "appGatewaySubnetPrefix": {
+      "value": "192.168.3.0/24"
+    },
+    "vmSeriesFirewallModel": {
+      "value": "byol"
+    },
+    "vmSeriesImageVersion": {
+      "value": "latest"
+    },
+    "vmSeriesFirewallVmSize": {
+      "value": "Standard_D3_v2"
+    },
+    "username": {
+      "value": "pandemo"
+    },
+    "authenticationType": {
+      "value": "password"
+    },
+    "password": {
+      "value": "Dem0pa$$w0rd"
+    },
+    "sshPublicKey": {
+      "value": " "
+    },
+    "bootstrapStorageAccount": {
+      "value": "rrbootstrap"
+    },
+    "bootstrapStorageAccountAccessKey": {
+      "value": "FoGftUC9f0o3QEm8DngAgJtHHZoy9SE1gMKYg+hWegr0ph8JsEmwx55Wz53I4CfSqK+vAXhPeZZnk1T7WwBmcQ=="
+    },
+    "bootstrapFileShare": {
+      "value": "bootstrapfiles"
+    },
+    "bootstrapSharedDir": {
+      "value": "rr-inbound-fw-1"
+    },
+    "vmScaleSetMinCount": {
+      "value": 1
+    },
+    "vmScaleSetMaxCount": {
+      "value": 3
+    },
+    "autoScaleMetric": {
+      "value": "Active Sessions"
+    },
+    "scaleInThreshold": {
+      "value": 20
+    },
+    "scaleOutThreshold": {
+      "value": 80
+    },
+    "panoramaPluginMessageHandlerUrl": {
+      "value": "https://rr-asc-function-handler.azurewebsites.net/api/infra?code=IKDDxtalrlOiVZxqMrJv0JSZYRgS3snbKB/yoDZLOz5U2HddsNXQgA=="
+    }
+  }
+}
