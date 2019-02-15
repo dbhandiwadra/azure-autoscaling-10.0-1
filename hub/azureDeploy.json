@@ -54,8 +54,7 @@
             "type": "string",
             "allowedValues": [
                 "latest",
-                "8.1.0",
-                "8.0.0"
+                "8.1.0"
                 ],
             "defaultValue": "latest",
             "metadata": {
@@ -204,7 +203,7 @@
     },
     
     "variables": {
-        "baseUrl" : "https://raw.githubusercontent.com/rranjeet/azure-autoscaling/master/hub",
+        "baseUrl" : "https://raw.githubusercontent.com/rpidaparth/azure-autoscaling/master/hub",
         "deployNsgURL"         : "[concat(variables('baseUrl'),'/deployNsg.json')]",
         "deployVnetURL"        : "[concat(variables('baseUrl'),'/deployVnet.json')]",
         "deployLoadBalancerURL": "[concat(variables('baseUrl'),'/deployLoadBalancer.json')]",

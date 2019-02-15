@@ -78,8 +78,7 @@
             "type": "string",
             "allowedValues": [
                 "latest",
-                "8.1.0",
-                "8.0.0"
+                "8.1.0"
             ],
             "defaultValue": "latest",
             "metadata": {
@@ -221,11 +220,12 @@
         "appGatewaySubnetName" : "[concat(parameters('virtualNetworkName'), '-appgw-subnet')]",
         "LoadBalancerType" : "layer-7",
         "firewallVmCount" : 2,
-        "baseUrl" : "https://raw.githubusercontent.com/rranjeet/azure-autoscaling/master/inbound",
+        "baseUrl" : "https://raw.githubusercontent.com/rpidaparth/azure-autoscaling/master/inbound",
         "nsgURL" : "[concat(variables('baseUrl'),'/nsg-new.json')]",
         "vnetURL" : "[concat(variables('baseUrl'),'/deployVnet.json')]",
         "publicLBURL" : "[concat(variables('baseUrl'),'/public-lb-', variables('LoadBalancerType'), '.json')]",
         "defaultUdrSetupURL": "[concat(variables('baseUrl'), '/deployDefaultUDR.json')]",
+        "defaultEmptyUdrSetupURL": "[concat(variables('baseUrl'), '/deployEmptyUDR.json')]",
         "vmseriesURL" : "[concat(variables('baseUrl'),'/vmseries.json')]",
         "appInsightsApiVersion": "2018-05-01", 
         "appInsightsComponentsApiVersion": "2018-05-01",
@@ -334,18 +334,12 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('defaultUdrSetupURL')]",
+                    "uri": "[variables('defaultEmptyUdrSetupURL')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
                     "udrName": {
                         "value": "[variables('udrName')]"
-                    },
-                    "subnetPrefix": {
-                         "value": "0.0.0.0/0"
-                    },
-                    "nextHopIP": {
-                         "value": "[parameters('fwLoadBalancerIP')]"
                     }
                 }
             }
