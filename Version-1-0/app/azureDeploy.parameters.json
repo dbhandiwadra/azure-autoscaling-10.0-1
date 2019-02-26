@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "connectToHub": {
+      "value": "Yes"
+    },
+    "hubResourceGroupName": {
+      "value": "rr-asc-hub-2"
+    },
+    "hubVnetName": {
+      "value": "rr-asc-hub-vnet2"
+    },
+    "hubLoadBalancerIP": {
+      "value": "10.0.2.4"
+    },
+    "applicationLoadBalancerIP": {
+      "value": "10.50.1.4"
+    },
+    "inboundFirewallResourceGroupName": {
+      "value": "rr-asc-fw-inbound-fw2"
+    },
+    "inboundFirewallVnetName": {
+      "value": "inbound-fw-vnet2"
+    },
+    "networkSecurityGroupInboundSrcIP": {
+      "value": "199.167.54.229"
+    },
+    "virtualNetworkName": {
+      "value": "spoke-app-vnet5"
+    },
+    "virtualNetworkAddressPrefix": {
+      "value": "10.50.0.0/16"
+    },
+    "mgmtSubnetPrefix": {
+      "value": "10.50.0.0/24"
+    },
+    "trustedSubnetPrefix": {
+      "value": "10.50.1.0/24"
+    },
+    "backendSubnetPrefix": {
+      "value": "10.50.2.0/24"
+    },
+    "username": {
+      "value": "pandemo"
+    },
+    "password": {
+      "value": "Dem0pa$$w0rd"
+    }
+  }
+}
