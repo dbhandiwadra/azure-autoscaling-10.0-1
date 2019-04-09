@@ -1,6 +1,7 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+
     "parameters": {
         "appGatewayDnsName": {
             "type": "string",
@@ -19,6 +20,17 @@
             "metadata": {
                 "description": "IP Address of the Internal Load Balancer in front of the firewall. This should be an IP in the Untrust subnet."
             }
+        },
+        "deployIntoExistingVnet": {
+             "type": "string",
+             "defaultValue": "No",
+             "allowedValues": [
+                    "Yes",
+                    "No"
+             ],
+             "metadata": {
+                 "description": "If yes, then the template will deploy just the VM-Series firewall and not the app-gw."
+             }
         },
         "virtualNetworkName": {
             "type": "string",
@@ -315,6 +327,7 @@
             }
         },
         {
+            "condition": "[equals(parameters('deployIntoExistingVnet'), 'No')]",
             "name": "SetupDefaultUDR",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2015-01-01",
@@ -384,11 +397,14 @@
                     },
                     "udrName": {
                          "value": "[variables('udrName')]"
+                    },
+                    "deployIntoExistingVnet": {
+                        "value": "[parameters('deployIntoExistingVnet')]"
                     }
                 }
             }
         },
-        {
+        {   "condition": "[equals(parameters('deployIntoExistingVnet'), 'No')]",
             "name": "SetupPublicLoadBalancer",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2015-01-01",
@@ -572,5 +588,25 @@
            }
         ],
     "outputs": {
+        "InboundFwVnetName": {
+            "value": "[parameters('virtualNetworkName')]",
+            "type": "string"
+        },
+        "InboundFwMgmtSubnetName": {
+            "value": "[variables('MgmtSubnetName')]",
+            "type": "string"
+        },
+        "InboundFwUntrustSubnetName": {
+            "value": "[variables('untrustedSubnetName')]",
+            "type": "string"
+        },
+        "InboundFwTrustSubnetName": {
+            "value": "[variables('trustedSubnetName')]",
+            "type": "string"
+        },
+        "InboundFwLoadBalancerIP": {
+            "value": "[parameters('fwLoadBalancerIP')]",
+            "type": "string"
+        }
     }
 }
