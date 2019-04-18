@@ -51,7 +51,7 @@
         "RootManageSharedAccessKey_name": "RootManageSharedAccessKey",
         "serviceBusApiVersion": "2014-09-01",
         "baseUrl" : "https://raw.githubusercontent.com/rpidaparth/azure-autoscaling/master/Version-1-0/infra",
-        "serviceBusUrl": "[concat(variables('baseUrl'), 'deployServiceBus.json')]",
+        "serviceBusUrl": "[concat(variables('baseUrl'), '/deployServiceBus.json')]",
         "functionHostingPlan": "Basic",
         "appInsightsInstancename": "[concat(parameters('panoramaPluginMessageHandlerName'), '-appinsights-', variables('namingInfix'))]",
         "workerSize": "0"
@@ -207,7 +207,7 @@
             "type": "string"
         },
         "ServiceBusName": {
-            "value": "[parameters('serviceBusName)]",
+            "value": "[parameters('serviceBusName')]",
             "type": "string"
         },
         "ServiceBusConnectionString": {

@@ -325,7 +325,7 @@
                 },
                 "parameters": {
                     "nsgName": {
-                        "value": "[variables('networkSecurityGroupName')]"
+                        "value": "[reference('deployNsg').outputs.MgmtSubnetNsgName.value]"
                     },
                     "virtualNetworkName": {
                         "value": "[parameters('virtualNetworkName')]"

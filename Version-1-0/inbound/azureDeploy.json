@@ -6,8 +6,9 @@
         "appGatewayDnsName": {
             "type": "string",
             "metadata": {
-                "description": "The DNS name for the internet-facing application. Must be globally unique."
-            }
+                "description": "The DNS name for the internet-facing application. Must be globally unique. - Required if deploying into new VNET, Not applicable if deploying into existing VNET."
+            },
+            "defaultValue": "YourAppGwDnsName"
         },
         "networkSecurityGroupInboundSrcIP": {
             "type": "string",
