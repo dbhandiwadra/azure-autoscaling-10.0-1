@@ -251,17 +251,12 @@
                             "managedDisk": {
                                 "storageAccountType": "Standard_LRS"
                             },
+                            "blobUri": "https://schanduvhds.blob.core.windows.net/vhds/PA-VM-AZR-9.1.0-c147.vhd"
                             "caching": "ReadWrite",
                             "createOption": "FromImage",
                             "diskSizeGB": 60
                         },
                         "dataDisks": [],
-                        "imageReference": {
-                            "publisher": "[variables('imagePublisher')]",
-                            "offer": "[variables('imageOffer')]",
-                            "sku": "[parameters('vmSku')]",
-                            "version": "[parameters('imageVersion')]"
-                        }
                     },
                     "osProfile": {
                         "computerNamePrefix": "[concat('pavm', variables('namingInfix'))]",
