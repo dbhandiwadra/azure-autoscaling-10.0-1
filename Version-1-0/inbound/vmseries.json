@@ -257,7 +257,7 @@
                         },
                         "dataDisks": [],
                         "imageReference": {
-                              "id": "[resourceId('Microsoft.Compute/images', '/subscriptions/1adc902d-2621-40cb-8109-6ab72c2c26c8/resourceGroups/pavmqa-automation-img/providers/Microsoft.Compute/images/PA-VM-AZR-9.1.2-c24')]"
+                              "id": "/subscriptions/1adc902d-2621-40cb-8109-6ab72c2c26c8/resourceGroups/pavmqa-automation-img/providers/Microsoft.Compute/images/PA-VM-AZR-9.1.2-c24"
                         }
                     },
                     "osProfile": {
