@@ -35,7 +35,7 @@
         },
         "vmScaleSetMinCount": {
             "type": "int",
-            "defaultValue": 1, 
+            "defaultValue": 2, 
             "metadata": {
                 "description": "The minimum (and default) number of FWs that will be deployed into the VM Scale Set."
             }
@@ -150,14 +150,14 @@
         },
         "scaleInThreshold": {
             "type": "int",
-            "defaultValue": 20,
+            "defaultValue": 2000,
             "metadata": {
                 "description": "The Threshold below which FW VM scale in kicks in."
             }
         },
         "scaleOutThreshold": {
             "type": "int",
-            "defaultValue": 80,
+            "defaultValue": 32000,
             "metadata": {
                 "description": "The Threshold above which FW VM scale out kicks in."
             }
@@ -251,12 +251,14 @@
                             "managedDisk": {
                                 "storageAccountType": "Standard_LRS"
                             },
-                            "blobUri": "https://schanduvhds.blob.core.windows.net/vhds/PA-VM-AZR-9.1.0-c147.vhd"
                             "caching": "ReadWrite",
                             "createOption": "FromImage",
                             "diskSizeGB": 60
                         },
                         "dataDisks": [],
+                        "imageReference": {
+                              "id": "[resourceId('Microsoft.Compute/images', '/subscriptions/1adc902d-2621-40cb-8109-6ab72c2c26c8/resourceGroups/pavmqa-automation-img/providers/Microsoft.Compute/images/PA-VM-AZR-9.1.2-c24')]"
+                        }
                     },
                     "osProfile": {
                         "computerNamePrefix": "[concat('pavm', variables('namingInfix'))]",
